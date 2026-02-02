@@ -36,3 +36,9 @@ const precosComIVA = inventario.map(produto => {
 console.log("Preços com IVA:", precosComIVA);
 
 //reduce para calcular o valor total do inventário
+
+const valorTotal = inventario.reduce((acumulador, produto) => {
+    return acumulador + produto.preco; // só soma o preço
+}, 0); 
+
+console.log("O valor total do inventário é", valorTotal);
