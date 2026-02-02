@@ -13,3 +13,32 @@ const inventario = [
 
 const produtosEmStock = inventario.filter(stockTrue => stockTrue.emStock === true);
 console.log("Os produtos em stock são", produtosEmStock);
+
+//filter para achar produtos em stock e preço < 100
+
+const produtosEmStockeAbaixoDe100 = inventario.filter(stockTrue => stockTrue.emStock === true && stockTrue.preco < 100);
+console.log("Os produtos em stock e com preço menor que 100 são", produtosEmStockeAbaixoDe100);
+
+//Utilize o some para identificar se possui algum elemento sem estoque e em seguida liste quais
+
+const existeSemStock = inventario.some(produto => produto.emStock === false);
+console.log("Existe algum produto sem stock?", existeSemStock);
+
+const produtosSemStock = inventario.filter(produto => produto.emStock === false);
+console.log("Produtos sem stock:", produtosSemStock);
+
+//map para criar lista de preços com IVA (para facilitar considere que todos os produtos pagam 23% de IVA)
+
+const precosComIVA = inventario.map(produto => {
+  return {nome: produto.nome, precoComIVA: + ((produto.preco * 0.23) + produto.preco)};
+});
+
+console.log("Preços com IVA:", precosComIVA);
+
+//reduce para calcular o valor total do inventário
+
+const valorTotal = inventario.reduce((acumulador, produto) => {
+    return acumulador + produto.preco; // só soma o preço
+}, 0); 
+
+console.log("O valor total do inventário é", valorTotal);
