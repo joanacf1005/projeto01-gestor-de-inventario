@@ -26,3 +26,11 @@ console.log("Existe algum produto sem stock?", existeSemStock);
 
 const produtosSemStock = inventario.filter(produto => produto.emStock === false);
 console.log("Produtos sem stock:", produtosSemStock);
+
+//map para criar lista de preços com IVA (para facilitar considere que todos os produtos pagam 23% de IVA)
+
+const precosComIVA = inventario.map(produto => {
+  return {nome: produto.nome, precoComIVA: + ((produto.preco * 0.23) + produto.preco)};
+});
+
+console.log("Preços com IVA:", precosComIVA);
