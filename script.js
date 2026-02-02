@@ -13,3 +13,9 @@ const inventario = [
 
 const produtosEmStock = inventario.filter(stockTrue => stockTrue.emStock === true);
 console.log("Os produtos em stock são", produtosEmStock);
+
+//filter para achar produtos em stock e preço < 100
+
+const produtosEmStockeAbaixoDe100 = inventario.filter(stockTrue => stockTrue.emStock === true && stockTrue.preco < 100);
+console.log("Os produtos em stock e com preço menor que 100 são", produtosEmStockeAbaixoDe100);
+
